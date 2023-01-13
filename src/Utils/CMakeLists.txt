@@ -1,0 +1,9 @@
+
+set(LIBRARY_NAME branchutils)
+set(LIBRARY_SRC_FILE
+    ${CMAKE_CURRENT_SOURCE_DIR}/dataProcess.cpp
+)
+
+add_library(${LIBRARY_NAME} ${LIBRARY_SRC_FILE})
+
+install(TARGETS ${LIBRARY_NAME} LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/output)
