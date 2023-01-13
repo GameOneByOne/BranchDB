@@ -1,4 +1,4 @@
-#include <socket>
+#include <sys/socket.h>
 
 namespace Net {
 enum class Status {
@@ -9,17 +9,17 @@ enum class Status {
 
 class NetComm {
 public:
-    static NetComm &Instance() {
+    static NetComm &Instance()
+    {
         static NetComm instance;
         return instance;
     }
 
-    NetComm(NetComm &) = delete;
+    NetComm(const NetComm &) = delete;
     NetComm(NetComm &&) = delete;
     Net::Status GetStatus();
 
 private:
     NetComm() = default;
     ~NetComm() = default;
-
 };

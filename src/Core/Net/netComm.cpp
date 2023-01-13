@@ -1,5 +1,6 @@
 #include "netComm.h"
 
-namespace NetComm {
-
-} // namespace NetComm
+Net::Status NetComm::GetStatus()
+{
+    return Net::Status::UNCONNECTED;
+}
