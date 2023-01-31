@@ -1,11 +1,14 @@
 add_subdirectory(Engine)
 add_subdirectory(Net)
+add_subdirectory(Log)
 
 set(LIBRARY_NAME brachcore)
 set(LIBRARY_SRC_FILE
-    $<TARGET_OBJECTS:branchengine>
     $<TARGET_OBJECTS:branchnet>
+    $<TARGET_OBJECTS:branchlog>
 )
+
+add_compile_options(${CMAKE_CXX_FLAG}) 
 
 add_library(${LIBRARY_NAME} SHARED ${LIBRARY_SRC_FILE})
 
