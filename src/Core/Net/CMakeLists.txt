@@ -5,7 +5,7 @@ set(OBJECT_SRC_FILE
 )
 
 include_directories(
-    ${PROJECT_SOURCE_DIR}/src/Core/
+    ${PROJECT_SOURCE_DIR}/src/
 )
 
 add_compile_options(${CMAKE_CXX_FLAG}) 

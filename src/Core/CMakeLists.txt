@@ -1,9 +1,11 @@
 add_subdirectory(Engine)
 add_subdirectory(Net)
 add_subdirectory(Log)
+add_subdirectory(Config)
 
-set(LIBRARY_NAME brachcore)
+set(LIBRARY_NAME branchcore)
 set(LIBRARY_SRC_FILE
+    $<TARGET_OBJECTS:branchconfig>
     $<TARGET_OBJECTS:branchnet>
     $<TARGET_OBJECTS:branchlog>
 )
