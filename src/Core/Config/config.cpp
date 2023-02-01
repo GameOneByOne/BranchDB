@@ -33,13 +33,9 @@ bool Config::Init(const std::string &configFile)
     return true;
 }
 
-std::string Config::GetConfig(const std::string &key)
+std::string Config::GetConfig(ConfigItem configItem)
 {
-    const auto &item = CONFIG_MAP.find(key);
-    if (item != CONFIG_MAP.end()) {
-        configs[item->second] = keyAndValue[1]; 
-    }
-    return "";
+    return configs[configItem];
 }
 
 void Config::SetConfig(const std::string &key, const std::string &value)

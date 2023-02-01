@@ -18,7 +18,7 @@ public:
 
     bool Init(const std::string &configFile);
 
-    std::string GetConfig(const std::string &key);
+    std::string GetConfig(ConfigItem configItem);
     void SetConfig(const std::string &key, const std::string &value);
 
 private:
