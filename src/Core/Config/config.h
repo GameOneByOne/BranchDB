@@ -1,3 +1,7 @@
+#ifndef CONFIG
+#define CONFIG
+
+#include "configItem.h"
 #include <map>
 #include <string>
 
@@ -22,5 +26,7 @@ private:
     ~Config() = default;
 
 private:
-    std::map<std::string, std::string> configMap;
+    std::map<ConfigItem, std::string> configs;
 };
+
+#endif // CONFIG
