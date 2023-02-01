@@ -8,6 +8,7 @@ set(LIBRARY_SRC_FILE
     $<TARGET_OBJECTS:branchconfig>
     $<TARGET_OBJECTS:branchnet>
     $<TARGET_OBJECTS:branchlog>
+    $<TARGET_OBJECTS:branchengine>
 )
 
 add_compile_options(${CMAKE_CXX_FLAG}) 

@@ -22,7 +22,7 @@ public:
     void Stop();
 
 private:
-    Server() = default;
+    Server();
     ~Server() = default;
 
     static void *StartServer(void *);

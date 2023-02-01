@@ -38,8 +38,9 @@ std::string Config::GetConfig(ConfigItem configItem)
     return configs[configItem];
 }
 
-void Config::SetConfig(const std::string &key, const std::string &value)
+void Config::SetConfig(ConfigItem configItem, const std::string &value)
 {
+    configs[configItem] = value;
     return;
 }
 

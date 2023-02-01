@@ -1,11 +1,11 @@
 #include "engine.h"
 
-bool Engine::Init()
+bool Engine::Start()
 {
     return true;
 }
 
-bool Engine::DeInit()
+bool Engine::Stop()
 {
     return true;
 }
@@ -15,7 +15,7 @@ bool Engine::Add()
     return true;
 }
 
-bool Engine::Remove()
+bool Engine::Delete()
 {
     return true;
 }

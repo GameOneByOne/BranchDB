@@ -1,6 +1,9 @@
 #include <string>
+#include <cstdlib>
 #include <iostream>
 #include "Core/Config/Config.h"
+#include "Core/Net/netServer.h"
+#include "Core/Engine/engine.h"
 
 namespace {
 const int PARAMS_NUM = 2;
@@ -16,6 +19,13 @@ int main(int argc, const char *argv[]) {
         return 0;
     }
 
-    std::cout << "Hello!" << std::endl;
+    std::string ip = Config::Instance().GetConfig(ConfigItem::LISTEN_IP);
+    std::string port = Config::Instance().GetConfig(ConfigItem::LISTEN_PORT);
+    if (!Net::Server::Instance().Start(ip, std::atoi(port.c_str()))) {
+        return 0;
+    }
+
+    Engine::Instance().Start(); // is a circle.
+    Net::Server::Instance().Stop();
     return 0;
 }

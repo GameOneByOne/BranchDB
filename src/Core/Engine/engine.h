@@ -1,4 +1,4 @@
-
+#include <pthread.h>
 
 class Engine {
 public:
@@ -11,15 +11,15 @@ public:
     Engine(const Engine &) = delete;
     Engine(Engine &&) = delete;
 
-    bool Init();
-    bool DeInit();
+    bool Start();
+    bool Stop();
 
 private:
     Engine() = default;
     ~Engine() = default;
 
     bool Add();
-    bool Remove();
+    bool Delete();
     bool Update();
     bool Query();
 };

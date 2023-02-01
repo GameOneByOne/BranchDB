@@ -19,7 +19,7 @@ public:
     bool Init(const std::string &configFile);
 
     std::string GetConfig(ConfigItem configItem);
-    void SetConfig(const std::string &key, const std::string &value);
+    void SetConfig(ConfigItem configItem, const std::string &value);
 
 private:
     Config() = default;

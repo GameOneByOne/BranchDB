@@ -10,15 +10,23 @@ const int MESSAGE_LEN = 256;
 }
 
 namespace Net {
+Server::Server() : listenFd(-1), threadFd(-1), status(STATUS::STOP)
+{}
+
 bool Server::Start(const std::string &ip, int port)
 {
     if (status != STATUS::STOP) {
         return true;
     }
 
+    // Check the ip.
+    if (ip.empty() || port == 0) {
+        ERRORLOG("Net has error value with ip and port. [ip=%s][port=%s]", ip.c_str(), std::to_string(port).c_str());
+        return false;
+    }
     // Init socket fd.
     if((listenFd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
-        ERRORLOG("Net Init failed. [error=%d]", errno);
+        ERRORLOG("Net init failed. [error=%d]", errno);
         return false;
     }
 
