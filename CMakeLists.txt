@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 project(BranchDB)
 
 set(CMAKE_CXX_COMPILER g++)
-set(CMAKE_CXX_FLAG -fPIC -g)
+set(CMAKE_CXX_FLAG -fPIC -g -std=c++11)
 
 add_subdirectory(src)
 

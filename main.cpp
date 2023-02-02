@@ -4,6 +4,7 @@
 #include "Core/Config/Config.h"
 #include "Core/Net/netServer.h"
 #include "Core/Engine/engine.h"
+#include "Core/Log/logger.h"
 
 namespace {
 const int PARAMS_NUM = 2;
@@ -16,6 +17,14 @@ int main(int argc, const char *argv[]) {
     }
 
     if (!Config::Instance().Init(argv[1])) {
+        return 0;
+    }
+    
+    std::string logPath = Config::Instance().GetConfig(ConfigItem::LOG_PATH);
+    if (!Logger::Instance().Init(logPath)) {
+        return 0;
+    }
+    if (!Logger::Instance().Register(RUNNING_LOG)) {
         return 0;
     }
 
