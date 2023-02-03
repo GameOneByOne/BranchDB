@@ -3,19 +3,21 @@
 namespace Net {
 class Client {
 public:
-    static Client &Instance()
-    {
-        static Client instance;
-        return instance;
-    }
+    Client();
+    Client(Client &&rhs);
+    ~Client();
 
-    Client(const Client &) = delete;
-    Client(Client &&) = delete;
-
-    bool SendTo(const std::string &ip, int port, const std::string &data);
+    bool ConnectTo(const std::string &ip, int port);
+    bool Send(const std::string &sendData);
+    bool Recv(const std::string &sendData);
+    void Shutdown();
 
 private:
-    Client() = default;
-    ~Client() = default;
+    bool ReConnectTo();
+
+private:
+    std::string remoteIp;
+    int remote port;
+    int remoteFd;
 };
 } // namespace Net

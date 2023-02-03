@@ -54,7 +54,7 @@ bool Server::Start(const std::string &ip, int port)
         status = STATUS::STOP;
         return false;
     }
-
+    INFOLOG("Net server start successed.");
     return true;
 }
 
@@ -83,8 +83,10 @@ void *Server::DealMessage(void *)
 
 void Server::Stop()
 {
+    INFOLOG("asdfasdfasdfasdf   %d", listenFd);
     status = STATUS::STOP;
     pthread_join(listenFd, nullptr);
+    listenFd = -1;
     INFOLOG("Net stop succeed.");
     return;
 }

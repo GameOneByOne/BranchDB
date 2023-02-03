@@ -1,6 +1,7 @@
 #include <string>
 #include <cstdlib>
 #include <iostream>
+#include <unistd.h>
 #include "Core/Config/Config.h"
 #include "Core/Net/netServer.h"
 #include "Core/Engine/engine.h"
@@ -21,10 +22,8 @@ int main(int argc, const char *argv[]) {
     }
     
     std::string logPath = Config::Instance().GetConfig(ConfigItem::LOG_PATH);
-    if (!Logger::Instance().Init(logPath)) {
-        return 0;
-    }
-    if (!Logger::Instance().Register(RUNNING_LOG)) {
+    if (!Logger::Instance().Init(logPath) || !Logger::Instance().Register(RUNNING_LOG)) {
+        std::cout << "Log module init failed. [error=" << errno << "]" << std::endl; 
         return 0;
     }
 
@@ -34,7 +33,7 @@ int main(int argc, const char *argv[]) {
         return 0;
     }
 
-    Engine::Instance().Start(); // is a circle.
-    Net::Server::Instance().Stop();
+    Engine::Instance().Start();
+    sleep(1000); // Tmp code.
     return 0;
 }
