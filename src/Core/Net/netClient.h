@@ -1,3 +1,5 @@
+#ifndef NET_CLIENT
+#define NET_CLIENT
 #include <string>
 
 namespace Net {
@@ -17,7 +19,8 @@ private:
 
 private:
     std::string remoteIp;
-    int remote port;
+    int remotePort;
     int remoteFd;
 };
 } // namespace Net
+#endif // NET_CLIENT

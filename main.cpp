@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include "Core/Config/Config.h"
 #include "Core/Net/netServer.h"
+#include "Core/Net/netClient.h"
 #include "Core/Engine/engine.h"
 #include "Core/Log/logger.h"
 
@@ -34,6 +35,5 @@ int main(int argc, const char *argv[]) {
     }
 
     Engine::Instance().Start();
-    sleep(1000); // Tmp code.
     return 0;
 }

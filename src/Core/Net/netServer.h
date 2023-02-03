@@ -1,3 +1,5 @@
+#ifndef NET_SERVER
+#define NET_SERVER
 #include <string>
 #include <pthread.h>
 
@@ -35,3 +37,4 @@ private:
 
 };
 } // namespace Net
+#endif // NET_SERVER
